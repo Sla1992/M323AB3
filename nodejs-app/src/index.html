@@ -4,82 +4,119 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>SladjuSys AG</title>
-  <link rel="stylesheet" href="./styles.css" />
+  <script src="https://cdn.tailwindcss.com"></script>
 </head>
 
-<body>
-  <header class="header">
-    <span class="brand">SladjuSys</span>
-    <span class="header-title">HEADER - SladjuSys AG</span>
-  </header>
+<body class="bg-slate-100 text-slate-900">
+  <div class="flex min-h-screen">
 
-  <main class="layout">
-    <aside class="sidebar">
-      <h2>SIDEBAR</h2>
-      <nav>
-        <ul>
-          <li><a href="#">Home</a></li>
-          <li><a href="#">About Us</a></li>
-          <li><a href="#">Products</a></li>
-        </ul>
+    <aside id="sidebar"
+      class="w-64 bg-slate-900 text-white transition-all duration-300 overflow-hidden flex flex-col">
+      
+      <div class="flex items-center justify-between px-4 py-4 border-b border-slate-700">
+        <span id="brandText" class="font-bold whitespace-nowrap">SladjuSys</span>
+
+        <button
+          id="burgerBtn"
+          type="button"
+          onclick="toggleSidebar()"
+          class="inline-flex items-center justify-center rounded p-2 hover:bg-slate-800"
+          aria-label="Toggle sidebar">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+          </svg>
+        </button>
+      </div>
+
+      <nav class="flex-1 px-3 py-4 space-y-2 text-sm">
+        <a class="block rounded px-3 py-2 hover:bg-slate-700" href="#">
+          <span class="sidebarText">Home</span>
+        </a>
+        <a class="block rounded px-3 py-2 hover:bg-slate-700" href="#">
+          <span class="sidebarText">About Us</span>
+        </a>
+        <a class="block rounded px-3 py-2 hover:bg-slate-700" href="#">
+          <span class="sidebarText">Products</span>
+        </a>
       </nav>
+
+      <div class="px-4 py-3 text-xs border-t border-slate-700">
+        <span class="sidebarText">© 2026 SladjuSys</span>
+      </div>
     </aside>
 
-    <div class="content">
-      <section class="table-area">
-        <h2>TABLE</h2>
+    <div class="flex-1 flex flex-col">
+      <header class="bg-white shadow px-6 py-4">
+        <h1 class="text-lg font-semibold">HEADER - SladjuSys AG</h1>
+      </header>
 
-        <table>
-          <thead>
-            <tr>
-              <th>Firstname</th>
-              <th>Lastname</th>
-              <th>Age</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>Jill</td>
-              <td>Smith</td>
-              <td>50</td>
-            </tr>
-            <tr>
-              <td>Eve</td>
-              <td>Jackson</td>
-              <td>94</td>
-            </tr>
-            <tr>
-              <td>John</td>
-              <td>Doe</td>
-              <td>80</td>
-            </tr>
-          </tbody>
-        </table>
-      </section>
+      <main class="flex-1 p-6 space-y-6">
+        <div class="bg-white p-4 rounded shadow">
+          <h2 class="text-sm font-bold mb-3">TABLE</h2>
+          <table class="w-full text-sm">
+            <thead>
+              <tr class="text-left border-b">
+                <th class="py-2">Firstname</th>
+                <th class="py-2">Lastname</th>
+                <th class="py-2">Age</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y">
+              <tr><td class="py-2">Jill</td><td>Smith</td><td>50</td></tr>
+              <tr><td class="py-2">Eve</td><td>Jackson</td><td>94</td></tr>
+              <tr><td class="py-2">John</td><td>Doe</td><td>80</td></tr>
+            </tbody>
+          </table>
+        </div>
 
-      <section class="section-area">
-        <h2>SECTION</h2>
+        <div class="bg-white p-4 rounded shadow space-y-3">
+          <h2 class="text-sm font-bold">SECTION</h2>
 
-        <article class="article">
-          <h3>ARTICLE - My Title 1</h3>
-          <p>Lorem ipsum dolor sit ahmed...</p>
-        </article>
+          <article class="border p-3 rounded hover:bg-slate-50">
+            <h3 class="font-semibold text-sm">ARTICLE - My Title 1</h3>
+            <p class="text-sm text-slate-600">Lorem ipsum dolor sit ahmed...</p>
+          </article>
 
-        <article class="article">
-          <h3>ARTICLE - My Title 2</h3>
-          <p>Lorem ipsum dolor sit ahmed...</p>
-        </article>
+          <article class="border p-3 rounded hover:bg-slate-50">
+            <h3 class="font-semibold text-sm">ARTICLE - My Title 2</h3>
+            <p class="text-sm text-slate-600">Lorem ipsum dolor sit ahmed...</p>
+          </article>
 
-        <article class="article">
-          <h3>ARTICLE - My Title 3</h3>
-          <p>Lorem ipsum dolor sit ahmed...</p>
-        </article>
-      </section>
+          <article class="border p-3 rounded hover:bg-slate-50">
+            <h3 class="font-semibold text-sm">ARTICLE - My Title 3</h3>
+            <p class="text-sm text-slate-600">Lorem ipsum dolor sit ahmed...</p>
+          </article>
+        </div>
+      </main>
+
+      <footer class="bg-white text-center text-xs p-4 border-t">
+        FOOTER - SladjuSys AG ☕
+      </footer>
     </div>
-  </main>
+  </div>
 
-  <footer class="footer">
-    FOOTER - Copyright© - SladjuSys AG ☕
-  </footer>
+  <script>
+    function toggleSidebar() {
+      const sidebar = document.getElementById('sidebar');
+      const brandText = document.getElementById('brandText');
+      const textNodes = document.querySelectorAll('.sidebarText');
+
+      const isCollapsed = sidebar.classList.contains('w-16');
+
+      if (isCollapsed) {
+        sidebar.classList.remove('w-16');
+        sidebar.classList.add('w-64');
+
+        brandText.classList.remove('hidden');
+        textNodes.forEach(el => el.classList.remove('hidden'));
+      } else {
+        sidebar.classList.remove('w-64');
+        sidebar.classList.add('w-16');
+
+        brandText.classList.add('hidden');
+        textNodes.forEach(el => el.classList.add('hidden'));
+      }
+    }
+  </script>
 </body>
 </html>
